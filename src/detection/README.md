@@ -6,15 +6,23 @@
 
 原始資料是 1280x720 的影片，但其實球員移動的範圍只在影片中間的區塊，因此我將影片裁切成 720x720 的正方形，並且將擷取出來的逐格影像再縮小至 224x224
 
+裁減前
+
+![00003-471](./results/00003-471.png)
+
+裁剪後
+
+![00003-471-crop](./results/00003-471-crop.png)
+
 ## MixUp
 
 由於影片的取樣頻率太高，每個 Frame 之間的動作差異不大，可能會無端增加模型負擔，所以我嘗試使用 MixUp 來壓縮資料，MixUp 是藉由將 2 個以上的 Frame 進行混合，產生新的 Frame
 
 官方容許 2 個 Frame 的誤差，因此我的 MixUp 設定為 5 個 Frame（左右各 2 個誤差容許 Frame），以下是 MixUp 的結果，可以看到球員的動作產生殘影，表示他們的移動軌跡
 
-![MixUp-001](./results/output-mixupx5-01.png)
+![00003-471-475-mixup-x5](./results/00003-471-475-mixup-x5.png)
 
-![MixUp-001](./results/output-mixupx5-02.png)
+![00001-108-112-mixup-x5](./results/00001-108-112-mixup-x5.png)
 
 ## Oversampling
 
